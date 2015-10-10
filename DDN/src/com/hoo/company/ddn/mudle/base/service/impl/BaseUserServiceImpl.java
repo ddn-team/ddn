@@ -26,12 +26,12 @@ public class BaseUserServiceImpl implements IBaseUserService {
 	
 	public BaseUser add(BaseUser user) throws SecurityException, NoSuchFieldException {
 		if(user != null && !StringUtils.isEmpty(user.getUserPwd())){
-			try {
+			/*try {*/
 				user.setUserName(user.getTelPhone());//TODO 用户登录名即为其电话号码
-				user.setUserPwd(EncryptionUtils.toMD5(user.getUserPwd()));
-			} catch (NoSuchAlgorithmException e) {
+				//user.setUserPwd(EncryptionUtils.toMD5(user.getUserPwd()));
+			/*} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
-			}
+			}*/
 		}
 		return daoSupport.insert(user);
 	}

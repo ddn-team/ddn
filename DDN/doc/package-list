@@ -1,0 +1,17 @@
+com.hoo.company.base
+com.hoo.company.base.filter
+com.hoo.company.ddn
+com.hoo.company.ddn.exception
+com.hoo.company.ddn.manager
+com.hoo.company.ddn.mudle.base.dao
+com.hoo.company.ddn.mudle.base.entity
+com.hoo.company.ddn.mudle.base.model
+com.hoo.company.ddn.mudle.base.service
+com.hoo.company.ddn.mudle.base.service.impl
+com.hoo.company.ddn.mudle.common
+com.hoo.company.ddn.mudle.common.impl
+com.hoo.company.ddn.mudle.contacts.dao
+com.hoo.company.ddn.mudle.contacts.entity
+com.hoo.company.ddn.mudle.contacts.service
+com.hoo.company.ddn.mudle.contacts.service.impl
+com.hoo.company.ddn.util
