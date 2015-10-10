@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoo.company.ddn.mudle.contacts.dao.IContactsMessageDao">
+	
+	<!-- 查询 所有留言-->
+	<select id="queryLt" resultType="com.hoo.company.ddn.mudle.contacts.entity.ContactsMessage">
+		SELECT id	 	 as "id",
+			   name  	 as "name",
+			   email 	 as "email",
+			   telphone  as "telphone",
+			   content   as "content",
+			   timestamp as "timestamp"
+		FROM CONTACTS_MESSAGE
+		ORDER BY timestamp
+	</select>
+	
+</mapper>

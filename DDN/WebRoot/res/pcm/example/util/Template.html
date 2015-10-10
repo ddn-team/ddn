@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Template 模板引擎 使用</title>
+</head>
+
+<!-- <script type="text/javascript" src="../../src/util/Template.js"></script> -->
+<script type="text/javascript" src="../../pcm.min.js"></script>
+<script type="text/javascript">
+	var tpl  = '我叫:<%this.name%>,';//<% for(var i=0,len = this.likes.length;i<len;i++){var like = this.likes[i];%>喜欢的类型:<% like["type"] %>,名称为:<%like["mc"]%>}
+	var data = { name : 'hank' };
+	/*,	likes:[{	type:'1',	mc:'篮球'},{	type:'2',	mc:'游泳'}]*/
+	var str = Pcm.tpl.translate(tpl,data);
+	console.log(str);
+</script>
+
+<body>
+
+</body>
+</html>
