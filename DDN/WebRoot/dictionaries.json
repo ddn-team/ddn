@@ -1,0 +1,55 @@
+[{
+   "belongType":"houseType",
+   "belongTypeName":"户型",
+   "typeCode":"three_two",
+   "typeName":"三室两厅",
+   "sortNum" : 1
+},{
+   "belongType":"houseType",
+   "belongTypeName":"户型",
+   "typeCode":"two_two",
+   "typeName":"两室两厅",
+   "sortNum" : 2
+},{
+	"belongType":"exampleType",
+	"belongTypeName":"案例图类型",
+	"typeCode":"huxingtu",
+	"typeName":"户型图",
+	"sortNum":1
+},{
+	"belongType":"exampleType",
+	"belongTypeName":"案例图类型",
+	"typeCode":"ruanzhuang",
+	"typeName":"软装",
+	"sortNum":2
+},{
+	"belongType":"exampleType",
+	"belongTypeName":"案例图类型",
+	"typeCode":"jiaju",
+	"typeName":"家居",
+	"sortNum":3
+},{
+	"belongType":"exampleType",
+	"belongTypeName":"案例图类型",
+	"typeCode":"anzhuang",
+	"typeName":"安装",
+	"sortNum":4
+},{
+	"belongType":"exampleType",
+	"belongTypeName":"案例图类型",
+	"typeCode":"youqi",
+	"typeName":"油漆",
+	"sortNum":5
+},{
+	"belongType":"exampleType",
+	"belongTypeName":"案例图类型",
+	"typeCode":"shuidian",
+	"typeName":"水电",
+	"sortNum":6
+},{
+	"belongType":"exampleType",
+	"belongTypeName":"案例图类型",
+	"typeCode":"maopi",
+	"typeName":"毛坯",
+	"sortNum":7
+}]

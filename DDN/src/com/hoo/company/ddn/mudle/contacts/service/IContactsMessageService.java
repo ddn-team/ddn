@@ -30,7 +30,7 @@ public interface IContactsMessageService {
 	
 	/**
 	 * 查询留言
-	 * @param msg
+	 * @param msg {toUserId:"被留言人ID"}
 	 * @return
 	 */
 	public List<ContactsMessage> queryLt(ContactsMessage msg);

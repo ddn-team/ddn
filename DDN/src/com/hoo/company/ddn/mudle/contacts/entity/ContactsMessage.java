@@ -33,7 +33,8 @@ public class ContactsMessage implements Serializable{
 	/*** 留言时间戳(yyyyMMddHHmmss) */
 	@Column(name="TIMESTAMP")
 	private long timestamp;
-	
+	/*** 留言对象(留言给谁的)ID  */
+	private String toUserId;
 	
 	public String getId() {
 		return id;
@@ -53,6 +54,9 @@ public class ContactsMessage implements Serializable{
 	public long getTimestamp() {
 		return timestamp;
 	}
+	public String getToUserId() {
+		return toUserId;
+	}
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -71,5 +75,7 @@ public class ContactsMessage implements Serializable{
 	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 	}
-	
+	public void setToUserId(String toUserId) {
+		this.toUserId = toUserId;
+	}
 }

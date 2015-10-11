@@ -1,4 +1,4 @@
-package com.hoo.company.ddn.mudle.common.impl;
+package com.hoo.company.ddn.rpc.impl;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -13,7 +13,7 @@ import com.hoo.company.ddn.exception.ValidateFailException;
 import com.hoo.company.ddn.mudle.base.entity.BaseUser;
 import com.hoo.company.ddn.mudle.base.model.DdnUser;
 import com.hoo.company.ddn.mudle.base.service.IBaseUserService;
-import com.hoo.company.ddn.mudle.common.ICommonService;
+import com.hoo.company.ddn.rpc.ICommonRpc;
 
 /**
  * 通用服务层实现类
@@ -21,7 +21,7 @@ import com.hoo.company.ddn.mudle.common.ICommonService;
  *
  */
 @Service("commonRPC")
-public class CommonServiceImpl implements ICommonService{
+public class CommonRpcImpl implements ICommonRpc{
 
 	@Resource
 	IBaseUserService userService;
@@ -49,6 +49,7 @@ public class CommonServiceImpl implements ICommonService{
 	    if(null != tempUser){ throw new Exception("该账号已被占用.");}
 		//TODO 查询邀请码是否真实 invitationCode
 	    try{
+	    	bUser.setNickName(username);
 	    	bUser.setUserPwd(EncryptionUtils.toMD5(password));
 	    } catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();

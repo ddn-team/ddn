@@ -1,4 +1,4 @@
-package com.hoo.company.ddn.mudle.common;
+package com.hoo.company.ddn.rpc;
 
 import com.hoo.company.ddn.exception.UserNotFoundException;
 import com.hoo.company.ddn.exception.ValidateFailException;
@@ -9,7 +9,7 @@ import com.hoo.company.ddn.mudle.base.model.DdnUser;
  * @author hank
  *
  */
-public interface ICommonService {
+public interface ICommonRpc {
 	
 	/**
 	 * 登录,接收参数:

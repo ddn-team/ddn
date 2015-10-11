@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoo.company.ddn.mudle.base.dao.IBaseDictionariesDao">
+	
+    <select id="queryLt" resultType="com.hoo.company.ddn.mudle.base.entity.BaseDictionaries">
+        SELECT ID 		 		as "id",
+        	   BELONG_TYPE 		as "belongType",
+        	   BELONG_TYPE_NAME as "belongTypeName",
+        	   TYPE_CODE 		as "typeCode",
+        	   TYPE_NAME     	as "typeName",
+        	   ALLOW_FIXED  	as "allowFixed",
+        	   SORT_NUM 		as "sortNum"
+        FROM
+        BASE_DICTIONARIES
+        <if test="dic.id != null">
+        	where ID = #{dic.id}
+        </if>
+        <if test="dic.id == null">
+        	<where>
+	        	<if test="dic.belongType != null">
+	        		BELONG_TYPE = #{dic.belongType}
+	        	</if>
+	        	<if test="dic.typeCode != null">
+	        		AND TYPE_CODE = #{dic.typeCode}
+	        	</if>
+	        </where>
+        </if>
+        ORDER BY SORT_NUM
+    </select>
+    
+    
+    <select id="getCount" resultType="java.lang.Integer">
+    	SELECT 
+    		COUNT(ID)
+    	FROM
+    	BASE_DICTIONARIES
+    	<if test="dic.id != null">
+        	where ID = #{dic.id}
+        </if>
+        <if test="dic.id == null">
+        	<where>
+	        	<if test="dic.belongType != null">
+	        		BELONG_TYPE = #{dic.belongType}
+	        	</if>
+	        	<if test="dic.typeCode != null">
+	        		AND TYPE_CODE = #{dic.typeCode}
+	        	</if>
+	        </where>
+        </if>
+    </select>
+</mapper>
+
