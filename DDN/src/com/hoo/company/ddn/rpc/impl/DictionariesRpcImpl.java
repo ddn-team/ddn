@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.hoo.company.ddn.mudle.base.entity.BaseDictionaries;
 import com.hoo.company.ddn.mudle.base.service.IBaseDictionariesService;
 import com.hoo.company.ddn.rpc.IDictionariesRpc;
+import com.hoo.company.ddn.util.FileUtils;
 
 @Service("dictionariesRpc")
 public class DictionariesRpcImpl implements IDictionariesRpc {
@@ -29,21 +30,7 @@ public class DictionariesRpcImpl implements IDictionariesRpc {
 		
 		if(dService.getCount(new BaseDictionaries()) >0 ){ return; }
 		
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		if (classLoader == null) {
-			classLoader = ClassLoader.getSystemClassLoader();
-		}
-		java.net.URL url = classLoader.getResource("");
-		String ROOT_CLASS_PATH = url.getPath() + "/";
-		File rootFile = new File(ROOT_CLASS_PATH);
-		String WEB_INFO_DIRECTORY_PATH = rootFile.getParent() + "/";
-		File webInfoDir = new File(WEB_INFO_DIRECTORY_PATH);
-		String SERVLET_CONTEXT_PATH = webInfoDir.getParent() + "/";
-
-		// 这里 SERVLET_CONTEXT_PATH 就是WebRoot的路径
-
-		String path = SERVLET_CONTEXT_PATH + "/" + "dictionaries.json";
-		path = path.replaceAll("%20", " ");
+		String path = FileUtils.getWebRootPath() + "dictionaries.json";
 		String result = "";  
 		FileReader reader = null;  
 		 BufferedReader br = null;
