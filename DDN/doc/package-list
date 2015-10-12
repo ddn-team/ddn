@@ -1,5 +1,6 @@
 com.hoo.company.base
 com.hoo.company.base.filter
+com.hoo.company.base.util
 com.hoo.company.ddn
 com.hoo.company.ddn.exception
 com.hoo.company.ddn.manager
@@ -12,6 +13,8 @@ com.hoo.company.ddn.mudle.contacts.dao
 com.hoo.company.ddn.mudle.contacts.entity
 com.hoo.company.ddn.mudle.contacts.service
 com.hoo.company.ddn.mudle.contacts.service.impl
+com.hoo.company.ddn.mudle.ddn.entity
 com.hoo.company.ddn.rpc
 com.hoo.company.ddn.rpc.impl
+com.hoo.company.ddn.servlet
 com.hoo.company.ddn.util
