@@ -29,6 +29,9 @@ public interface ICommonRpc {
 	 * @throws Exception 
 	 */
 	public boolean register(String username,String password,String invitationCode) throws Exception;
-
 	
+	/**
+	 * 退出登录
+	 */
+	public void logout();
 }

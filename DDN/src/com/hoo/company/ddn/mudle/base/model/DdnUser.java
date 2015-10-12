@@ -3,9 +3,10 @@ package com.hoo.company.ddn.mudle.base.model;
 /**
  * 当前系统用户模型
  * @author hank
- *
  */
 public class DdnUser {
+	/*** 用户ID*/
+	private String id;
 	/*** 用户名 */
 	private String username;
 	/*** 昵称*/
@@ -13,6 +14,9 @@ public class DdnUser {
 	/*** 密码*/
 	private String password;
 	
+	public String getId() {
+		return id;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -21,6 +25,9 @@ public class DdnUser {
 	}
 	public String getPassword() {
 		return password;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public void setUsername(String username) {
 		this.username = username;
@@ -31,6 +38,5 @@ public class DdnUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 }

@@ -27,6 +27,11 @@ public class SessionManager {
 		return single;
 	}
 	
+	
+	public HttpServletRequest getReq(){
+		return threadRequest.get();
+	}
+	
 	public void setRequest(HttpServletRequest value){
 		threadRequest.set(value);
 	}

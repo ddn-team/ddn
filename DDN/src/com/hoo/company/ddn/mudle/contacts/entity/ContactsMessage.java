@@ -10,6 +10,8 @@ import javax.persistence.Table;
 /**
  * 留言实体类
  * @author hank
+ * @version 1.0
+ * @version 1.1 融合案例预约留言
  */
 @SuppressWarnings("serial")
 @Entity
@@ -30,9 +32,12 @@ public class ContactsMessage implements Serializable{
 	/*** 留言内容 */
 	@Column(name="CONTENT")
 	private String content;
-	/*** 留言时间戳(yyyyMMddHHmmss) */
-	@Column(name="TIMESTAMP")
-	private long timestamp;
+	/*** 留言时间(yyyy-MM-dd HH:mm:ss) */
+	@Column(name="CREATE_TIME")
+	private String createTime;
+	/*** 留言来源 */
+	@Column(name="MESSAGE_FROM")
+	private String messageFrom;
 	/*** 留言对象(留言给谁的)ID  */
 	private String toUserId;
 	
@@ -51,8 +56,9 @@ public class ContactsMessage implements Serializable{
 	public String getContent() {
 		return content;
 	}
-	public long getTimestamp() {
-		return timestamp;
+	
+	public String getCreateTime() {
+		return createTime;
 	}
 	public String getToUserId() {
 		return toUserId;
@@ -72,10 +78,18 @@ public class ContactsMessage implements Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
+	
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
 	}
 	public void setToUserId(String toUserId) {
 		this.toUserId = toUserId;
 	}
+	public String getMessageFrom() {
+		return messageFrom;
+	}
+	public void setMessageFrom(String messageFrom) {
+		this.messageFrom = messageFrom;
+	}
+	
 }

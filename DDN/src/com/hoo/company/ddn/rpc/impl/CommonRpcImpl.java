@@ -14,6 +14,7 @@ import com.hoo.company.ddn.mudle.base.entity.BaseUser;
 import com.hoo.company.ddn.mudle.base.model.DdnUser;
 import com.hoo.company.ddn.mudle.base.service.IBaseUserService;
 import com.hoo.company.ddn.rpc.ICommonRpc;
+import com.hoo.company.ddn.util.SessionUtils;
 
 /**
  * 通用服务层实现类
@@ -33,6 +34,9 @@ public class CommonRpcImpl implements ICommonRpc{
 	    if(null == bUser){ throw new UserNotFoundException("该用户不存在");}
 	    try {
 			if(bUser.getUserPwd().equals(EncryptionUtils.toMD5(user.getPassword()))){
+				user.setId(bUser.getId());
+				user.setNickname(bUser.getUserName());
+				SessionUtils.setUser(user);
 				return true;
 			}
 			throw new ValidateFailException("密码凭证错误");
@@ -57,6 +61,10 @@ public class CommonRpcImpl implements ICommonRpc{
 		}
 	    bUser = userService.add(bUser);
 		return null != bUser;
+	}
+
+	public void logout() {
+		SessionUtils.clearUser();
 	}
 
 	

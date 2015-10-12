@@ -27,7 +27,7 @@ import com.hoo.company.ddn.util.SessionUtils;
  */
 public class MVCFilter implements Filter {
 
-	private SessionManager sessionManager = null;
+	//private SessionManager sessionManager = null;
 	private String unloginRequests = null;
 	// 增加 server\methods 对应关系,可以放开ajax登录认证问题(即不登录可访问)
 	private Map<String, Map<String, Boolean>> allowUnlogin = null;
@@ -37,14 +37,18 @@ public class MVCFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
-		sessionManager.setRequest(req);
-		sessionManager.setResponse(res);
+		SessionManager.getInstance().setRequest(req);
+		SessionManager.getInstance().setResponse(res);
 		
 		// 在这里进行功能权限过滤
 		String server = req.getParameter("server"), method = req .getParameter("method");
 		if (allowUnlogin.containsKey(server) && allowUnlogin.get(server).containsKey(method)) {
 			fc.doFilter(req, res);
 			return;
+		}
+		//如果是查询方法-均放开?
+		if(method.startsWith("query")){
+			fc.doFilter(req, res);return;
 		}
 		
 		if (!SessionUtils.isLogin()) {
@@ -58,7 +62,7 @@ public class MVCFilter implements Filter {
 	}
 
 	public void init(FilterConfig config) throws ServletException {
-		sessionManager = SessionManager.getInstance();
+		//sessionManager = SessionManager.getInstance();
 
 		allowUnlogin = new HashMap<String, Map<String, Boolean>>();
 		unloginRequests = config.getInitParameter("unloginRequests");
