@@ -48,7 +48,7 @@ Pcm.util = Pcm.util || {};
 					.substring(0, pathname.substr(1).indexOf('/') + 1);
 			window.$profile = {
 				basePath : local + proname + "/",
-				uri : "/controller/core",
+				uri : "/controller/extcore",
 				batchuri:'/controller/core_batch',
 				doType : Constants.DO_TYPE.web
 			};
