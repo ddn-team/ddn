@@ -52,7 +52,7 @@
 	        <param-name>unloginRequests</param-name>
 	        <param-value>
 	            {
-	            	"commonRPC":["login","register","logout"]
+	            	"commonRPC":["login","register","logout","getUser"]
 	            }
 	        </param-value>
 	    </init-param>

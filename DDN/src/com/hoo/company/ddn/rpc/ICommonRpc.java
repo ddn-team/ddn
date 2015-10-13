@@ -12,6 +12,11 @@ import com.hoo.company.ddn.mudle.base.model.DdnUser;
 public interface ICommonRpc {
 	
 	/**
+	 * 获取登录用户
+	 * @return
+	 */
+	public DdnUser getUser();
+	/**
 	 * 登录,接收参数:
 	 * @param user  { username:"用户名",password:"密码" }
 	 * @return

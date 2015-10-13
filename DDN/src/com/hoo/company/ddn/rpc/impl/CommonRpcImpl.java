@@ -27,6 +27,14 @@ public class CommonRpcImpl implements ICommonRpc{
 	@Resource
 	IBaseUserService userService;
 	
+	/**
+	 * 获取用户,如果没登录，则返回null
+	 * @return
+	 */
+	public DdnUser getUser(){
+		return SessionUtils.getUser();
+	}
+	
 	public boolean login(DdnUser user) throws UserNotFoundException, ValidateFailException {
 		BaseUser bUser = new BaseUser();
 	    bUser.setUserName(user.getUsername());
