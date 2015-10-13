@@ -159,7 +159,7 @@ Pcm.util = Pcm.util || {};
 					delete lockMap[_key];
 					
 					if (data["code"] == "success") {
-						success.call(this, data["result"]);
+						success.call(this, data["result"],data["user"]);
 					} else {
 						var failMsg = data["result"] || "服务器异常!";
 						failure.call(this, failMsg);
