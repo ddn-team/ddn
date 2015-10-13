@@ -161,9 +161,9 @@ Pcm.util = Pcm.util || {};
 					if (data["code"] == "success") {
 						success.call(this, data["result"],data["user"]);
 					} else {
-						var failMsg = data["result"] || "服务器异常!";
-						failure.call(this, failMsg);
-						if(!noAlert)alert(failMsg);
+						var failResult = data["result"] || {cause:"",msg:"服务器异常!"};
+						failure.call(this, failResult.msg,failResult.cause);
+						if(!noAlert)alert(failResult.msg);
 					}
 				});
 			}
