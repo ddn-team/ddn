@@ -174,6 +174,44 @@ Pcm.util = Pcm.util || {};
 		 */
 		postMuti:function(config){
 			
+		},
+		/**
+		 * 上传文件[现支持单一文件上传]
+		 * config = {
+		 * 		fileElementId:"file文件element元素ID",
+		 *      success:function(listFiles){
+		 * 			//list文件名集合
+		 * 		},
+		 *      failure:function(){
+		 *      	
+		 *      }
+		 * }
+		 * 
+		 * http://www.phpddt.com/dhtml/ajaxfileupload.html
+		 */
+		uploadFile:function(config){
+			if(!$.ajaxFileUpload){ console.log("该方法依赖ajaxfileupload.js");return;}
+			config = config || {};
+			if(!config.fileElementId){return;}
+		    var success = config.success||function(){},failure = config.failure || function(){};
+			$.ajaxFileUpload({  
+		        url : window.$profile["basePath"] + "servlet/upload",   //submit to UploadFileServlet  
+		        secureuri : false,  
+		        fileElementId : config.fileElementId,  //file控件id
+		        secureuri :false,
+		        dataType : 'text',
+		        success : function (data, status){
+					data = JSON.parse(data);
+					if(data["code"] == "success"){
+		             	success.call(this,data.result);
+					}else{
+						failure.call(this,data.result || "上传错误!");
+					}
+		        },
+		        error : function(data, status, e) {  
+		             failure.call(this,"上传错误!");
+		        }  
+		    });
 		}
 	};
 	

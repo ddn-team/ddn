@@ -19,11 +19,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
     <!-- 定时调用 action=process即可 -->
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="jquery.form.js"></script>
-  	<script type="text/javascript">
+    <script type="text/javascript" src="res/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="ajaxfileupload.js"></script>
+  	<script type="text/javascript" src="res/pcm/pcm.src.js"></script>
+ 	<script type="text/javascript">
   		$(document).ready(function(){
-  			var process = function(){
+  			/*var process = function(){
   				$.post('servlet/upload',{
   					action:'process'
   				},function(data){
@@ -40,15 +41,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   						//clearInterval(interval);
   					}
   				});
-  			});
+  			});*/
+  			
+  			
   		});
+  		
+  		function upload(){
+  			 /*
+  			  $.ajaxFileUpload({  
+		        url : "servlet/upload",   //submit to UploadFileServlet  
+		        secureuri : false,  
+		        fileElementId : 'filename',  
+		        dataType : 'text', //or json xml whatever you like~  
+		        success : function(data, status) {  
+		            console.log(data);
+		        },  
+		        error : function(data, status, e) {  
+		            $("#result").append(data);  
+		        }  
+		    }); 
+  			  */  
+  			  
+  			  Pcm.ajax.uploadFile({
+  				  fileElementId:"filename",
+  				  success:function(data){
+  				  	console.log(data);
+  				  }
+  			  });
+  		}
   	</script>
   </head>
   
   <body>
     <form enctype="multipart/form-data" >
-    	<input name="filename" type="file" />
-    	<input type="submit" value="Submit"/>
+    	<input id="filename" name="filename" type="file" />
+    	<input type="button" value="Submit" onClick="upload()"/>
     </form>
   </body>
 </html>

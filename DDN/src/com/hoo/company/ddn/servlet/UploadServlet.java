@@ -3,6 +3,8 @@ package com.hoo.company.ddn.servlet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,10 +18,9 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
+import org.springframework.util.ObjectUtils;
 
-import cn.gilight.framework.mvc.Code;
-import cn.gilight.framework.mvc.model.Ajax;
-
+import com.alibaba.fastjson.JSONObject;
 import com.hoo.company.ddn.manager.SessionManager;
 import com.hoo.company.ddn.mudle.base.model.DdnUser;
 import com.hoo.company.ddn.util.FileUtils;
@@ -52,13 +53,15 @@ public class UploadServlet extends HttpServlet {
 		
 		PrintWriter pw = res.getWriter();
 		
-		DdnUser user = SessionUtils.getUser();
+		//DdnUser user = SessionUtils.getUser();
 		/*if(user == null){
 			Ajax ajax = new Ajax();
 			ajax.setCode(Code.error);
 			ajax.setResult("尚未登录,请登录后上传.");
 			pw.print(ajax);return;
 		}*/
+		JSONObject m = new JSONObject();
+		List<String> l = new ArrayList<String>();
 		try {
 			DiskFileItemFactory diskFactory = new DiskFileItemFactory();
 			// threshold 极限、临界值，即硬盘缓存 128M
@@ -77,15 +80,22 @@ public class UploadServlet extends HttpServlet {
 					//System.out.println("处理表单内容 ..."); processFormField(item, pw);
 				} else {
 					log.info("处理上传的文件 ...");
-					processUploadFile(item, pw);
+					String filename = processUploadFile(item, pw);
+					if(!ObjectUtils.isEmpty(new Object[]{filename})){
+						l.add(filename);
+					}
 				}
 			}
-
+			m.put("code","success");
+			m.put("result",l);
+			
 		} catch (Exception e) {
 			log.info("使用 fileupload 包时发生异常 ...");
 			e.printStackTrace();
-			pw.print(e.getMessage());
+			m.put("code","failure");
+			m.put("result",e.getCause());
 		}finally{
+			pw.print(m.toJSONString());
 			pw.flush();
 			pw.close();
 		}
@@ -99,7 +109,7 @@ public class UploadServlet extends HttpServlet {
 	}*/
 
 	// 处理上传的文件
-	private void processUploadFile(FileItem item, PrintWriter pw) throws Exception {
+	private String processUploadFile(FileItem item, PrintWriter pw) throws Exception {
 		// 此时的文件名包含了完整的路径，得注意加工一下
 		String filename = item.getName();
 		log.info("完整的文件名：" + filename);
@@ -110,15 +120,15 @@ public class UploadServlet extends HttpServlet {
 
 		if ("".equals(filename) && fileSize == 0) {
 			log.info("文件名为空 ...");
-			return;
 		}
 		//TODO USER测试
 		DdnUser user = SessionUtils.getUser();
 		
 		File uploadFile = new File(filePath + "/" + (user == null ? null : user.getId()) + "/" + filename);
 		item.write(uploadFile);
-		pw.println(filename + " 文件保存完毕 ...");
-		pw.println("文件大小为 ：" + fileSize + "\r\n");
+		//pw.println(filename + " 文件保存完毕 ...");
+		//pw.println("文件大小为 ：" + fileSize + "\r\n");
+		return filename;
 	}
 
 	@Override public void init(ServletConfig config) throws ServletException {
