@@ -12,8 +12,10 @@ public interface IDdnExamleService {
 	 * 新增案例
 	 * @param example
 	 * @return
+	 * @throws NoSuchFieldException 
+	 * @throws SecurityException 
 	 */
-	public DdnExample add(DdnExample example);
+	public DdnExample add(DdnExample example) throws SecurityException, NoSuchFieldException;
 	
 	/**
 	 * 修改案例 如标题名称  描述 类型等  图片的变更请看examplePictures

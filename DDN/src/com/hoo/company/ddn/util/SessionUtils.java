@@ -23,7 +23,8 @@ public class SessionUtils {
 	 * @return
 	 */
 	public static DdnUser getUser() {
-		return (DdnUser) SessionManager.getInstance().get().getAttribute(Constant.KEY_LOGIN_SESSION_USER);
+		Object o = SessionManager.getInstance().get().getAttribute(Constant.KEY_LOGIN_SESSION_USER);
+		return o == null ? null : (DdnUser)o ;
 	}
 	
 	/*** 得到系统默认支持的当前用户 */

@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,6 +18,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hoo.company.ddn.manager.SessionManager;
@@ -62,6 +62,7 @@ public class UploadServlet extends HttpServlet {
 		}*/
 		JSONObject m = new JSONObject();
 		List<String> l = new ArrayList<String>();
+		String packageName = StringUtils.isEmpty(req.getParameter("package")) ? "" : req.getParameter("package");
 		try {
 			DiskFileItemFactory diskFactory = new DiskFileItemFactory();
 			// threshold 极限、临界值，即硬盘缓存 128M
@@ -80,7 +81,7 @@ public class UploadServlet extends HttpServlet {
 					//System.out.println("处理表单内容 ..."); processFormField(item, pw);
 				} else {
 					log.info("处理上传的文件 ...");
-					String filename = processUploadFile(item, pw);
+					String filename = processUploadFile(packageName,item, pw);
 					if(!ObjectUtils.isEmpty(new Object[]{filename})){
 						l.add(filename);
 					}
@@ -109,7 +110,7 @@ public class UploadServlet extends HttpServlet {
 	}*/
 
 	// 处理上传的文件
-	private String processUploadFile(FileItem item, PrintWriter pw) throws Exception {
+	private String processUploadFile(String packageName,FileItem item, PrintWriter pw) throws Exception {
 		// 此时的文件名包含了完整的路径，得注意加工一下
 		String filename = item.getName();
 		log.info("完整的文件名：" + filename);
@@ -122,13 +123,15 @@ public class UploadServlet extends HttpServlet {
 			log.info("文件名为空 ...");
 		}
 		//TODO USER测试
+		if(!StringUtils.isEmpty(packageName)){ packageName += "/";}
 		DdnUser user = SessionUtils.getUser();
 		
-		File uploadFile = new File(filePath + "/" + (user == null ? null : user.getId()) + "/" + filename);
+		String path = packageName + (user == null ? null : user.getId()) + "/" + filename;//TOOD eg: demo/adminId/a.png
+		File uploadFile = new File(filePath + "/" + path);
 		item.write(uploadFile);
 		//pw.println(filename + " 文件保存完毕 ...");
 		//pw.println("文件大小为 ：" + fileSize + "\r\n");
-		return filename;
+		return path;
 	}
 
 	@Override public void init(ServletConfig config) throws ServletException {

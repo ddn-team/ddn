@@ -27,7 +27,7 @@ public class ExamplePictures implements Serializable {
 	private int sortNum;
 	@Column(name = "EXAMPLE_ID")
 	private String exampleId;
-
+	//TODO 打算添加创建时间
 	public String getId() {
 		return id;
 	}

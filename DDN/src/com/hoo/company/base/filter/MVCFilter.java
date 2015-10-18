@@ -41,7 +41,7 @@ public class MVCFilter implements Filter {
 		SessionManager.getInstance().setResponse(res);
 		
 		// 在这里进行功能权限过滤
-		String server = req.getParameter("server"), method = req .getParameter("method");
+		/*String server = req.getParameter("server"), method = req .getParameter("method");
 		if (allowUnlogin.containsKey(server) && allowUnlogin.get(server).containsKey(method)) {
 			fc.doFilter(req, res);
 			return;
@@ -57,8 +57,9 @@ public class MVCFilter implements Filter {
 			res.sendRedirect(basePath);
 		} else {
 			fc.doFilter(request, response);
-		}
-
+		}*/
+		//TODO 测试  暂不添加登录过滤
+		fc.doFilter(request, response);
 	}
 
 	public void init(FilterConfig config) throws ServletException {
