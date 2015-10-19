@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoo.company.ddn.mudle.ddn.dao.IExampleMessageDao">
+	
+	<!-- 查询 所有留言-->
+	<select id="queryLtByExampleId" resultType="com.hoo.company.ddn.mudle.ddn.entity.ExampleMessage">
+		SELECT id	 	 	as "id",
+			   TITLE 		as "title",
+			   CONTENT  	as "content",
+			   CREATE_TIME  as "createTime"
+		FROM EXAMPLE_MESSAGE
+		ORDER BY CREATE_TIME
+		<where>
+			<if test="null != message.exampleId">
+				EXAMPLE_ID = #{exampleId}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

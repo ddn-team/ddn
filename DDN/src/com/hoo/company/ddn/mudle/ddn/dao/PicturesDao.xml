@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoo.company.ddn.mudle.ddn.dao.IExamplePicturesDao">
+	
+	<!-- 根据案例ID 查询图片-->
+	<select id="queryLtByExampleId" resultType="com.hoo.company.ddn.mudle.ddn.entity.ExamplePictures">
+		SELECT id	 	 	as "id",
+			   TYPE_CODE 	as "typeCode",
+			   PICTURE_URL  as "pictureUrl",
+			   SORT_NUM  	as "sortNum",
+			   CREATE_TIME  as "createTime"
+		FROM EXAMPLE_PICTURES
+		ORDER BY CREATE_TIME,SORT_NUM
+		<where>
+			<if test="null != exampleId">
+				EXAMPLE_ID = #{exampleId}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

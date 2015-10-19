@@ -9,6 +9,12 @@ import com.hoo.company.ddn.mudle.ddn.entity.DdnExample;
 public interface IDdnExamleService {
 	
 	/**
+	 * 通过ID获取对象
+	 * @param id
+	 * @return
+	 */
+	public DdnExample queryById(String id);
+	/**
 	 * 新增案例
 	 * @param example
 	 * @return

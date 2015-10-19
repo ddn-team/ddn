@@ -26,9 +26,13 @@ public class DdnExamleServiceImpl implements IDdnExamleService {
 	public DdnExample delete(DdnExample example) {
 		return daoSupport.deleteById(example.getId(), DdnExample.class);
 	}
-
+	
 	public DdnExample update(DdnExample example) {
-		return null;
+		return daoSupport.update(example);
+	}
+
+	public DdnExample queryById(String id) {
+		return daoSupport.getById(id, DdnExample.class);
 	}
 
 }

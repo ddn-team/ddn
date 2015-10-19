@@ -27,6 +27,8 @@ public class ExamplePictures implements Serializable {
 	private int sortNum;
 	@Column(name = "EXAMPLE_ID")
 	private String exampleId;
+	@Column(name="CREATE_TIME")
+	private String createTime;
 	//TODO 打算添加创建时间
 	public String getId() {
 		return id;
@@ -68,4 +70,12 @@ public class ExamplePictures implements Serializable {
 		this.exampleId = exampleId;
 	}
 
+	public String getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+	
 }
