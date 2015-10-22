@@ -41,8 +41,8 @@ public class FileAccessServlet extends HttpServlet {
 		SessionManager.getInstance().setResponse(response);
 		
 		String url = request.getParameter("url"),
-			suffix = url.substring(url.lastIndexOf(".")),
-			userid = request.getParameter("userid");
+			suffix = url.substring(url.lastIndexOf("."));
+			//userid = request.getParameter("userid");
 		Integer pi = null;
 		Long expires = 24*60*60*1000L;
 		if(StringUtils.isEmpty(url)){ return; }
@@ -53,13 +53,13 @@ public class FileAccessServlet extends HttpServlet {
 		
 		File file;
 		if(BrowserUtils.isPC(request.getHeader("user-agent"))){
-			file = new File(root + dir + userid + "/" + url);
+			file = new File(root + dir +  url);//userid + "/" +
 		}else{
-			String path = root + dir + "mobile_x_" + userid + "/" + url;
+			String path = root + dir + "mobile_x_" + url;// userid + "/" + 
 			//不使用编码处理文件流
 			file = new File(path);
 			if(!file.exists() && picSuffix.contains(suffix)){//如果不存在,(高宽不指定,默认原图)
-				File ori = new File(root + dir + userid + "/" + url);
+				File ori = new File(root + dir + url); // userid + "/" + 
 				if(!ori.exists()){
 					return;//TODO 如果原图就不存在...(一个1px的点图)
 				}else{
