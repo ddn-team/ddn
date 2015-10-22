@@ -25,15 +25,14 @@ public class ExampleMessageServiceImpl implements IExampleMessageService {
 		message.setCreateTime(DateUtils.getNow());
 		return daoSupport.insert(message);
 	}
-
+    
+	
 	public ExampleMessage delete(ExampleMessage message) {
 		return daoSupport.delete(message);
-	}
+	}    
 
 	public List<ExampleMessage> queryLtByExampleId(ExampleMessage message) {
 		return exampleMessageDao.queryLtByExampleId(message);
 	}
-	
-	
 
 }

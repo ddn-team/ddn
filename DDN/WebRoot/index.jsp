@@ -27,14 +27,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript">
     	Pcm.ajax.postMVC({
 				noAlert:true,
-				server:'baseUserService',
-				method:'queryT',
-				params:[{userName:"admin"}],
-				success:function(data){
+				//server:'dictionariesRpc',
+				//method:"queryLtByBelongType",
+				server:"exampleRpc",method:"add",
+				params:[{
+					name:"案例一",
+					coverUrl:"e/url/head.jpg",
+					describes:"案例描述",
+					pics:[{
+						typeCode:"head",
+						urls:["e/url/head/1.jpg"]
+					},{
+						typeCode:"shuini",
+						urls:["e/url/head/1.jpg"]
+					}]
+				}],
+				//server:"commonRPC",method:'register', params:["admin","123456","RPCS68"],
+				//server:"commonRPC",method:'login', params:[ { username:"admin",password:"123456" }],
+				////params:["houseType"],
+				success:function(data,user){
 					console.log(data);
+					console.log(user);
 				},
 				failure:function(msg){
-					alert(msg);
+					console.log(msg);
 				}
 			});
     </script>

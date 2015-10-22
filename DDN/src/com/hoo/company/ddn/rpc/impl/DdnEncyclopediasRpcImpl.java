@@ -26,9 +26,7 @@ public class DdnEncyclopediasRpcImpl implements IDdnEncyclopediasRpc {
 		return encyclopediasService.queryT(encyclopedias);
 	}
 
-	/**
-	 * 修改 为 差异化修改
-	 */
+	/*** 修改 为 差异化修改 */
 	public boolean update(DdnEncyclopedias encyclopedias) {
 		DdnEncyclopedias temp = queryT(encyclopedias);
 		if(temp == null){ return false; }

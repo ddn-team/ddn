@@ -64,6 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			  
   			  Pcm.ajax.uploadFile({
   				  fileElementId:"filename",
+  				  packageName:""
   				  success:function(data){
   				  	console.log(data);
   				  }
