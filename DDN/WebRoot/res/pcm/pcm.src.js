@@ -970,12 +970,12 @@ Pcm.util = Pcm.util || {};
 			 * @param url 系统指示地址
 			 * @param p 像素
 			 */
-			getImgSrc:function(url,p){
-				//TODO 现在只处理web下地址 webapp下 需要增加
+			getImgSrc:function(url){
+			 
 				if(url == null || '' == url){return '';}
 				if(typeof p == 'undefined'){ p = '';}
 				//webapp下: 1、file:///android_asset/url	2、本机   3、网络,但同时要异步执行本地存储
-				return window.$profile["basePath"] + 'FileAccessServlet.do?url='+ url +'&p='+ p;
+				return window.$profile["basePath"] + 'FileAccessServlet.do?url='+ url;
 			},
 			getFileSrc:function(){
 				if(url == null || '' == url){return '';}

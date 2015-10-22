@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>index</title>
+<link href="css/pc_css.css" rel="stylesheet" type="text/css" />
+<link href="css/mobile_css.css" rel="stylesheet" type="text/css" />
+<!--首页banner-->
+<script src="js/jquery.min.js"></script>
+<script src="js/responsiveslides.min.js"></script>
+<script src="js/slide.js"></script>
+<!--首页banner end-->
+<!--首页案例切换-->
+<script type="text/javascript" charset="utf-8" src="js/zzsc.js"></script>
+<!--首页案例切换end-->
+<script src="js/js.js" type=text/javascript></script>
+
+<!-- Add fancyBox main JS and CSS files -->
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />
+<!--fancybox end-->
+
+<!--enplaceholder-->
+<script type="text/javascript" src="js/enplaceholder.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$(".sousuoLink").click(function(){
+		$(this).hide();
+		$(this).next(".searchEm").show();
+		})
+	
+	$(".box").hover(function(){
+		$(this).find(".boxHover").slideDown(100);
+		},function(){
+			$(this).find(".boxHover").slideUp(100);
+			})
+	
+	$(".slide_container").hover(function(){
+		$(this).find(".slide_nav.prev").slideDown(100);
+		},function(){
+			$(this).find(".slide_nav.prev").slideUp(100);
+			})
+	
+	$(".slide_container").hover(function(){
+		$(this).find(".slide_nav.next").slideDown(100);
+		},function(){
+			$(this).find(".slide_nav.next").slideUp(100);
+			})
+			
+	//登录注册弹出层
+	$('.fancybox').fancybox(
+	{
+		closeBtn  : false
+		}
+	);
+	
+	//调用placeholder
+	//通过value模拟placeholder
+	$('input,textarea').placeholder();
+	//通过插入元素模拟placeholder
+	$('input,textarea').placeholder({isUseSpan:true});
+		
+    //登录注册tab切换
+	$(".logTablist li").each(function(index, element) {
+        $(this).click(function(){
+			$(".logTablist li").removeClass("tabon");
+			$(this).addClass("tabon");
+			
+			$(".logWrap").removeClass("logWrapShow");
+			$(".logWrap").eq(index).addClass("logWrapShow");
+			})
+    });	
+	
+    $(document).scroll(function(){
+		var h = $(document).scrollTop();
+		if(h>400){
+			$("#anli_title01").animate({top:0,opacity:1},700)
+			}
+			
+		if(h>1000){
+			$("#anli_title02").animate({top:0,opacity:1},700)
+			}	
+			
+		if(h>2000){
+			$("#anli_title03").animate({top:0,opacity:1},700)
+			}
+			
+		})
+		
+	})
+</script>
+
+</head>
+
+<body>
+
+<!-- 代码开始 -->
+<script type="text/javascript">
+function b(){
+	h = $(window).height();
+	t = $(document).scrollTop();
+	if(t > 100){
+		$('#gotop').show();
+	}else{
+		$('#gotop').hide();
+	}
+}
+$(document).ready(function(e) {
+	b();
+	$('#gotop').click(function(){
+		$(document).scrollTop(0);	
+	})
+	$('#code').hover(function(){
+			$(this).attr('id','code_hover');
+			$('#code_img').show();
+		},function(){
+			$(this).attr('id','code');
+			$('#code_img').hide();
+	})
+	
+});
+
+$(window).scroll(function(e){
+	b();		
+})
+</script>
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+<!-- 代码结束 -->
+
+<div class="top">
+	<ul>
+    	<li class="yinchang"><a href="#inline1" class="fancybox"><img src="images/zhuce.png" />注册</a></li>
+        <li class="yinchang"><a href="#inline1" class="fancybox"><img src="images/login.png" align="middle" width="21" height="21" />登录</a></li>
+        <li style="padding-bottom:0;">
+        	<a href="javascript:void(0)" class="sousuoLink"><img src="images/sousuo.png" /></a>
+        	 <em class="clearfix searchEm">
+    			<span><input type="text" placeholder="试试关键字搜索更多" value=""></span>
+        		<span><a href="#"><img src="images/sousuo02.jpg"></a></span>
+   			 </em>
+        </li>
+    </ul>
+</div>
+<div class="logo"><img src="images/logo2.png" /></div>
+<div class="nav">
+  <ul class="clearfix">
+    	<li><a href="index.html"><span class="title_icon"><img src="images/icon_index01.jpg" /></span><span class="title nav_xianshi">首页</span></a></li>
+        <li><a href="anli.html"><span class="title_icon"><img src="images/icon_anli.jpg" /></span><span class="title">搜索案例</span></a></li>
+        <li id="aboutus"><a href="index.html#anli_title02"><span class="title_icon"><img src="images/icon_about.jpg" /></span><span class="title">关于我们</span></a></li>
+        <li id="contactus"><a href="index.html#anli_title03"><span class="title_icon"><img src="images/icon_contact.jpg" /></span><span class="title">联系我们</span></a></li>
+    </ul>
+</div>
+<!-- banner代码 开始 -->
+    <div class="slide_container">
+      <ul class="rslides" id="slider"><li><img src="images/img1.jpg" alt="">
+        </li>
+        <li><img src="images/img1.jpg" alt=""></li>
+        <li><img src="images/img1.jpg" alt=""></li>
+      </ul>
+    </div>
+<!-- banner代码 结束 -->
+<!--<div class="flexslider">
+	<ul class="slides">
+		<li style="background:url(images/img1.jpg) center 0 no-repeat;"><a href="#">div+css</a></li>
+        <li style="background:url(images/img1.jpg) center 0 no-repeat;"><a href="#">div+css</a></li>
+        <li style="background:url(images/img1.jpg) center 0 no-repeat;"><a href="#">div+css</a></li>
+	</ul>
+</div>-->
+<div class="anli">
+	<div class="anli_title" id="anli_title01">案例
+    	<p>尊重空间的使用者，以我的匠心换你之安心</p>
+    </div>
+    
+	<div id="zzsc">
+<a class="pre"></a>
+<div id="wai_box">
+<div class="zzsc_box">
+<ul>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+</ul>
+<ul>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+</ul>
+<ul>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a>
+<a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+<li class="box"><a href="#" class="images"><img src="images/01.jpg" /></a><a href="javascript:void()" class="boxHover"><div class="huiyuan"><img src="images/touxiang01.jpg" /></div><span class="boxHoverImg"><img src="images/arrow.png"/></span>设计师名字 户型 造价</a></li>
+</ul>
+</div>
+</div>
+<a class="next"></a>
+</div>
+</div>
+<div class="about">
+	<div class="anli_title" id="anli_title02">关于我们
+    	<p>自家美——回归本质，以真为美</p>
+  	</div>
+    <div class="about_mid" >
+    		
+    <div class="Hr_1 clearfix" id="div" style="CURSOR: hand">
+    <a href="javascript:void(0)"><img id="pc_0" style="DISPLAY: block" src="images/001.jpg" /></a>
+	<a href="javascript:void(0)"><img id="pc_1" style="DISPLAY: none" src="images/002.jpg" /></a>
+	<a href="javascript:void(0)"><img id="pc_2" style="DISPLAY: none" src="images/001.jpg" /></a>
+	<a href="javascript:void(0)"><img id="pc_3" style="DISPLAY: none" src="images/002.jpg" /></a>
+    
+    <div class="Hr_11">
+	    <a class=act id=a0 onmouseover=clearAuto(); onclick=Mea(0); onmouseout=setAuto() href="javascript:void(0)"><div class="ahout_title">服务</div><div class="about_nr">服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务</div>
+        <div class="clear"></div>
+        </a> 
+		<a class=nor id=a1 onmouseover=clearAuto(); onclick=Mea(1); onmouseout=setAuto() href="javascript:void(0)"><div class="ahout_title">特点</div><div class="about_nr">服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务</div></a> 
+		<a class=nor id=a2 onmouseover=clearAuto(); onclick=Mea(2); onmouseout=setAuto() href="javascript:void(0)"><div class="ahout_title">追求</div><div class="about_nr">服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务</div></a>
+		<a class=nor id=a3 onmouseover=clearAuto(); onclick=Mea(3); onmouseout=setAuto() href="javascript:void(0)"><div class="ahout_title">自我</div><div class="about_nr">服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务服务</div></a>
+	  </div>
+      
+	</div>
+
+    </div>
+</div>
+<div class="contact clearfix">
+	<div class="anli_title" id="anli_title03">联系我们
+    	<p>时空有限，联接无限</p>
+  	</div>
+    <div class="contact_mid clearfix">
+    <div class="contact_left">
+    	<div class="contact_pre">
+        	<h1>地址：</h1>
+            <p>长宁区长宁路长宁上海上海上海上海上海</p>
+        </div>
+        <div class="contact_pre">
+        	<h1>联系方式：</h1>
+            <p>电话：021-6666 666<br />
+			   手机：13213256987<br />
+			   邮箱：1159239858@qq.com</p>
+        </div>
+    </div>
+    <div class="contact_right">
+    	<div class="contact_right_top clearfix">
+        	<div class="contact_right_top_left">
+            	<ul>
+               	  <li>姓名<input name="" type="text" /></li>
+                  <li>邮箱<input name="" type="text" /></li>
+                  <li>手机<input name="" type="text" /></li>
+                </ul>
+          </div>
+            <div class="contact_right_top_right"><textarea placeholder="请输入您需要的留言..." cols="" rows=""></textarea></div>
+        </div>
+        <div class="contact_right_foot"><input type="button" value="提交留言" /></div>
+    </div>
+    </div>
+</div>
+<div class="footer"><span>版权所有 © XXXX装修公司</span><span>备案号：IP15263542268</span></div>
+<!-- js调用部分begin -->
+<script>
+$(function(){
+	$('.flexslider').flexslider({
+		directionNav: true,
+		pauseOnAction: false
+	});
+});
+</script>
+<!-- js调用部分end -->
+
+
+
+
+<!--登录注册弹出层-->
+<div id="inline1" style="width:390px;display: none;">
+		<ul class="logTablist clearfix">
+        	<li class="tabon">
+            	<a href="javascript:void(0)">登录</a>
+            </li>
+            <li style="mgr0">
+            	<a href="javascript:void(0)">注册</a>
+            </li>
+        </ul>
+        
+        <div class="logWrap logWrapShow">
+        	<input placeholder="用户名" type="text" class="inputType" />
+            <input placeholder="密码" type="text" class="inputType" />
+            <div class="logForgets"><a href="javascript:void(0)">忘记密码？</a></div>
+            <input type="submit" value="登录" class="inputSmt" />
+        </div>
+        
+        <div class="logWrap">
+        	<input placeholder="手机号" type="text" class="inputType" />
+            <input placeholder="验证码" type="text" class="inputType" />
+            <input placeholder="邀请码" type="text" class="inputType" />
+            <input type="submit" value="提交" class="inputSmt" />
+        </div>
+        
+     
+</div>
+
+
+
+
+</body>
+</html>
