@@ -125,8 +125,10 @@ public class UploadServlet extends HttpServlet {
 		//TODO USER测试
 		if(!StringUtils.isEmpty(packageName)){ packageName += "/";}
 		DdnUser user = SessionUtils.getUser();
-		
-		String path = packageName + (user == null ? null : user.getId()) + "/" + filename;//TOOD eg: demo/adminId/a.png
+		packageName = packageName + (user == null ? null : user.getId()) + "/" ;
+		File dir = new File(filePath + "/" + packageName);
+		if(!dir.exists()){ dir.mkdirs(); }
+		String path = packageName + filename;				//TOOD eg: demo/adminId/a.png
 		File uploadFile = new File(filePath + "/" + path);
 		item.write(uploadFile);
 		//pw.println(filename + " 文件保存完毕 ...");

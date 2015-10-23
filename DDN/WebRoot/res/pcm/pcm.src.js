@@ -877,7 +877,6 @@ var Pcm = Pcm || {};
 Pcm.util = Pcm.util || {};
 (function(){
 	
-	
 	Pcm.util.Url = {
 			basePath:(function(){
 				var loc = window.document.location, href = loc.href, pathname = loc.pathname, pos = href
