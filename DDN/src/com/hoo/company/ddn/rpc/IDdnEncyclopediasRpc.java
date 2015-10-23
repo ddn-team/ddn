@@ -15,8 +15,9 @@ public interface IDdnEncyclopediasRpc {
 	 * 修改百科信息
 	 * @param encyclopedias
 	 * @return
+	 * @throws Exception 
 	 */
-	public boolean update(DdnEncyclopedias encyclopedias);
+	public boolean update(DdnEncyclopedias encyclopedias) throws Exception;
 	
 	/**
 	 * 删除百科信息

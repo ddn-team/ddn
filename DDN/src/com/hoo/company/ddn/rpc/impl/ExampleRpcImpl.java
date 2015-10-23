@@ -1,7 +1,9 @@
 package com.hoo.company.ddn.rpc.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -122,6 +124,39 @@ public class ExampleRpcImpl implements IExampleRpc {
 		ExampleMessage message = new ExampleMessage();
 		message.setExampleId(exampleId);
 		return exampleMessage.queryLtByExampleId(message);
+	}
+
+	public ExampleModel queryT(ExampleModel model) throws Exception {
+		DdnExample e = exampleService.queryById(model.getId());
+		List<ExamplePictures> l = examplePicturesService.queryLtByExampleId(model.getId());
+		if(e == null){ throw new Exception("当前案例不存在.");}
+		List<PictureModel> pics = new ArrayList<PictureModel>();
+		if(l != null){
+			PictureModel pm = null;
+			Map<String,List<String>> m = new HashMap<String,List<String>>();
+			for(ExamplePictures ep : l){
+				List<String> list = null;
+				if(!m.containsKey(ep.getTypeCode())){ list = new ArrayList<String>(); }else{ list = m.get(ep.getTypeCode()); }
+				list.add(ep.getPictureUrl());
+				m.put(ep.getTypeCode(), list);
+			}
+			for(String code : m.keySet()){
+				pm = new PictureModel();
+				pm.setExampleId(model.getId());
+				pm.setTypeCode(code);
+				pm.setUrls(m.get(code));	
+				pics.add(pm);
+			}
+		}
+		model.setCoverUrl(e.getCoverUrl());
+		model.setDescribes(e.getDescribes());
+		model.setHouseTypeId(e.getHouseTypeId());
+		model.setKeyword(e.getKeyword());
+		model.setName(e.getName());
+		model.setPriceId(e.getPriceId());
+		model.setStyleId(e.getStyleId());
+		model.setPics(pics);
+		return null;
 	}
 
 	

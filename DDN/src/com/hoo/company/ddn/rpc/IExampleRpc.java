@@ -15,6 +15,14 @@ import com.hoo.company.ddn.mudle.ddn.model.PictureModel;
 public interface IExampleRpc {
 	
 	/**
+	 * 查询单个案例集合
+	 * @param model
+	 * @return
+	 * @throws Exception 
+	 */
+	public ExampleModel queryT(ExampleModel model) throws Exception;
+	
+	/**
 	 * 新增案例
 	 * @param model
 	 * @return
