@@ -5,17 +5,20 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import cn.gilight.framework.dp.DaoSupport;
+import cn.gilight.framework.dp.model.Page;
 
+import com.hoo.company.ddn.mudle.ddn.dao.IDdnExampleDao;
 import com.hoo.company.ddn.mudle.ddn.entity.DdnExample;
 import com.hoo.company.ddn.mudle.ddn.service.IDdnExamleService;
 import com.hoo.company.ddn.util.DateUtils;
-import com.hoo.company.ddn.util.SessionUtils;
 
 @Service("ddnExamleService")
 public class DdnExamleServiceImpl implements IDdnExamleService {
 
 	@Resource
 	DaoSupport daoSupport;
+	@Resource
+	IDdnExampleDao exampleDao;
 	
 	public DdnExample add(DdnExample example) throws SecurityException, NoSuchFieldException {
 		example.setCreateTime(DateUtils.getNow());
@@ -35,4 +38,8 @@ public class DdnExamleServiceImpl implements IDdnExamleService {
 		return daoSupport.getById(id, DdnExample.class);
 	}
 
+	public Page queryLmPage(Page page,DdnExample example){
+		exampleDao.queryLmPage(page, example);
+		return page;
+	}
 }

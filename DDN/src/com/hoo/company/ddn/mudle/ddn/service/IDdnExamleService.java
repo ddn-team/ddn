@@ -1,5 +1,7 @@
 package com.hoo.company.ddn.mudle.ddn.service;
 
+import cn.gilight.framework.dp.model.Page;
+
 import com.hoo.company.ddn.mudle.ddn.entity.DdnExample;
 
 /**
@@ -36,4 +38,12 @@ public interface IDdnExamleService {
 	 * @return
 	 */
 	public DdnExample delete(DdnExample example);
+	
+	/**
+	 * 分页检索案例信息【首页】
+	 * @param page
+	 * @param example
+	 * @return
+	 */
+	public Page queryLmPage(Page page,DdnExample example);
 }

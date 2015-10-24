@@ -25,6 +25,12 @@ public class BaseUser implements Serializable {
 	/*** 用户昵称(真实姓名)*/
 	@Column(name = "NICK_NAME")
 	private String nickName;
+	/*** 用户头像地址   TODO 2015 10.24 添加*/
+	@Column(name="USER_HEAD_URL")
+	private String userHeadUrl;
+	/*** 个人简介   TODO 2015.10.24     添加*/
+	@Column(name="PROFILE")
+	private String profile;
 	/*** 用户电话 */
 	@Column(name = "TEL_PHONE")
 	private String telPhone;
@@ -40,68 +46,66 @@ public class BaseUser implements Serializable {
 	/*** 创建(注册)时间*/
 	@Column(name = "CREATE_TIME")
 	private String createTime;
-
+	
 	public String getId() {
 		return id;
 	}
-
 	public String getUserName() {
 		return userName;
 	}
-
 	public String getNickName() {
 		return nickName;
 	}
-
+	public String getUserHeadUrl() {
+		return userHeadUrl;
+	}
+	public String getProfile() {
+		return profile;
+	}
 	public String getTelPhone() {
 		return telPhone;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public String getUserPwd() {
 		return userPwd;
 	}
-
 	public String getInvitationCode() {
 		return invitationCode;
 	}
-
 	public String getCreateTime() {
 		return createTime;
 	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
-
+	public void setUserHeadUrl(String userHeadUrl) {
+		this.userHeadUrl = userHeadUrl;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 	public void setTelPhone(String telPhone) {
 		this.telPhone = telPhone;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
-
 	public void setInvitationCode(String invitationCode) {
 		this.invitationCode = invitationCode;
 	}
-
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
+	
 }

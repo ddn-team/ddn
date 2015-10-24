@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoo.company.ddn.mudle.ddn.dao.IDdnEncyclopediasDao">
+	
+	<!-- 查询 百科内容-->
+	<select id="queryLtPage" resultType="com.hoo.company.ddn.mudle.ddn.entity.DdnEncyclopedias">
+		SELECT id	 	 	as "id",
+			   QUESTION 	as "question",
+			   ANSWER  		as "answer",
+			   KEYWORDS 	as "keywords",
+			   CREATE_TIME  as "createTime",
+			   LAST_UPDATE_TIME as "lastUpdateTime"
+		FROM DDN_ENCYCLOPEDIAS
+		ORDER BY CREATE_TIME
+	</select>
+	
+</mapper>

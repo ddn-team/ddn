@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hoo.company.ddn.mudle.ddn.dao.IDdnExampleDao">
+	
+	<!-- 查询 案例内容  按最新的查找顺序查找-->
+	<select id="queryLmPage" resultType="java.util.HashMap">
+		SELECT
+				example.id as "id",
+				example.cover_url as "coverUrl",
+				example.NAME as "name",
+				example.describes as "describes",
+				example.keyword as "keyword",
+				example.create_time as "createTime",
+			    example.priceName,
+			    example.houseTypeName,
+			    example.styleName,
+			    u.id as "userId",
+			    u.USER_NAME as "userName",
+		        u.USER_HEAD_URL as "userHeadUrl"
+		FROM
+				(
+					SELECT
+						t2.*, dic3.TYPE_NAME AS "priceName"
+					FROM
+						(
+							SELECT
+								t1.*, dic2.TYPE_NAME AS "houseTypeName"
+							FROM
+								(
+									SELECT
+										d.*, dic.TYPE_NAME AS "styleName"
+									FROM
+										ddn_example d
+									LEFT JOIN base_dictionaries dic ON d.STYLE_ID = dic.id
+								) AS t1
+							LEFT JOIN base_dictionaries dic2 ON t1.house_type_id = dic2.id
+						) t2
+					LEFT JOIN base_dictionaries dic3 ON t2.price_id = dic3.id
+				) example
+			LEFT JOIN base_user u ON example.create_user_id = u.id
+		
+		<where>
+			<if test="search.priceId != null">
+				AND example.price_id = #{search.priceId}
+			</if>
+			<if test="search.styleId != null">
+				AND example.style_id = #{search.styleId}
+			</if>
+			<if test="search.houseTypeId != null">
+				AND example.house_type_id = #{search.houseTypeId}
+			</if>
+			<if test="search.name != null">
+				AND example.name LIKE '%${search.name}%'
+			</if>
+		</where>
+		
+		order by example.create_time desc
+	</select>
+	
+</mapper>

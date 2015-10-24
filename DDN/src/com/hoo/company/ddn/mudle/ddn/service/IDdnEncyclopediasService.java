@@ -2,6 +2,8 @@ package com.hoo.company.ddn.mudle.ddn.service;
 
 import java.util.List;
 
+import cn.gilight.framework.dp.model.Page;
+
 import com.hoo.company.ddn.mudle.ddn.entity.DdnEncyclopedias;
 
 public interface IDdnEncyclopediasService {
@@ -29,11 +31,12 @@ public interface IDdnEncyclopediasService {
 	public DdnEncyclopedias delete(DdnEncyclopedias encyclopedias);
 	
 	/**
-	 * 查询百科【简版】
-	 * @param encyclopedias
+	 * 查询百科
+	 * @param page 分页对象
+	 * @param encyclopedias 查询对象[暂传{}]
 	 * @return
 	 */
-	public List<DdnEncyclopedias> queryLt4Short(DdnEncyclopedias encyclopedias);
+	public Page queryLtPage(Page page,DdnEncyclopedias encyclopedias);
 
 	/**
 	 * 查询百科
@@ -41,4 +44,6 @@ public interface IDdnEncyclopediasService {
 	 * @return
 	 */
 	public DdnEncyclopedias queryT(DdnEncyclopedias encyclopedias);
+	
+	
 }
