@@ -14,10 +14,10 @@
         BASE_USER
         <where>
         	<if test="user.userName != null">
-        		USER_NAME = #{user.userName}
+        		AND USER_NAME = #{user.userName}
         	</if>
         	<if test="user.id != null">
-        	    ID = #{user.id}
+        	    AND ID = #{user.id}
         	</if>
         </where>
     </select>

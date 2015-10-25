@@ -39,6 +39,7 @@ public class ContactsMessage implements Serializable{
 	@Column(name="MESSAGE_FROM")
 	private String messageFrom;
 	/*** 留言对象(留言给谁的)ID  */
+	@Column(name="TO_USER_ID")
 	private String toUserId;
 	
 	public String getId() {
