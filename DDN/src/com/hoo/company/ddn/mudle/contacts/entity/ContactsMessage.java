@@ -35,10 +35,10 @@ public class ContactsMessage implements Serializable{
 	/*** 留言时间(yyyy-MM-dd HH:mm:ss) */
 	@Column(name="CREATE_TIME")
 	private String createTime;
-	/*** 留言来源 */
+	/*** 留言来源 -当前记录消息来源IP */
 	@Column(name="MESSAGE_FROM")
 	private String messageFrom;
-	/*** 留言对象(留言给谁的)ID  */
+	/*** 留言对象(留言给谁的)ID 如果不传则默认admin id  */
 	@Column(name="TO_USER_ID")
 	private String toUserId;
 	
