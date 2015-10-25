@@ -41,9 +41,12 @@ public interface IDdnExamleService {
 	
 	/**
 	 * 分页检索案例信息【首页】
-	 * @param page
-	 * @param example
-	 * @return
+	 * @param page {start:0,limit:20} 其中start为起始索引,limit为每页查询条数
+	 * @param example 当前支持  styleId,priceId,houseTypeId 以及 name的模糊查询
+	 * @return {
+	 * 		start : 20,  //需认为将前端传的start对象 重新赋值如 ：  var start = 0; 执行ajax调用后在回调中    start = page对象.start;
+	 *      rows  : [{}] //为dao层返回集合
+	 * }
 	 */
 	public Page queryLmPage(Page page,DdnExample example);
 }
