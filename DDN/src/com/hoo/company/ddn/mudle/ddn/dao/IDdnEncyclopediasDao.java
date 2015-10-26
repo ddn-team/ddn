@@ -16,5 +16,5 @@ public interface IDdnEncyclopediasDao {
 	 * @param page
 	 * @return
 	 */
-	public List<DdnEncyclopedias> queryLtPage(Page page);
+	public List<?> queryLtPage(Page page);
 }

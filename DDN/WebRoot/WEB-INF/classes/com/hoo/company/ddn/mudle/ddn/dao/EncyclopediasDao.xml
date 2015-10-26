@@ -3,7 +3,7 @@
 <mapper namespace="com.hoo.company.ddn.mudle.ddn.dao.IDdnEncyclopediasDao">
 	
 	<!-- 查询 百科内容-->
-	<select id="queryLtPage" resultType="com.hoo.company.ddn.mudle.ddn.entity.DdnEncyclopedias">
+	<select id="queryLtPage" resultType="java.util.HashMap">
 		SELECT id	 	 	as "id",
 			   QUESTION 	as "question",
 			   ANSWER  		as "answer",
