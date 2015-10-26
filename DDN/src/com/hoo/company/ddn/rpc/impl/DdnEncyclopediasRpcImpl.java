@@ -40,4 +40,5 @@ public class DdnEncyclopediasRpcImpl implements IDdnEncyclopediasRpc {
 		return encyclopediasService.update(temp) != null;
 	}
 
+	
 }

@@ -2,6 +2,8 @@ package com.hoo.company.ddn.mudle.ddn.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import cn.gilight.framework.dp.model.Page;
 
 import com.hoo.company.ddn.mudle.ddn.entity.DdnEncyclopedias;
@@ -16,5 +18,5 @@ public interface IDdnEncyclopediasDao {
 	 * @param page
 	 * @return
 	 */
-	public List<?> queryLtPage(Page page);
+	public List<?> queryLtPage(Page page,@Param("search")DdnEncyclopedias search);
 }

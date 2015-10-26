@@ -12,7 +12,7 @@ import com.hoo.company.ddn.mudle.ddn.entity.DdnEncyclopedias;
 import com.hoo.company.ddn.mudle.ddn.service.IDdnEncyclopediasService;
 import com.hoo.company.ddn.util.DateUtils;
 
-@Service("encyclopediasService")
+@Service("ddnEncyclopediasService")
 public class DdnEncyclopediasServiceImpl implements IDdnEncyclopediasService {
 	
 	@Resource
@@ -40,8 +40,8 @@ public class DdnEncyclopediasServiceImpl implements IDdnEncyclopediasService {
 	}
 
 	
-	public Page queryLtPage(Page page, DdnEncyclopedias encyclopedias) {
-		encyclopediasDao.queryLtPage(page);
+	public Page queryLmPage(Page page, DdnEncyclopedias encyclopedias) {
+		encyclopediasDao.queryLtPage(page,encyclopedias);
 		return page;
 	}
 

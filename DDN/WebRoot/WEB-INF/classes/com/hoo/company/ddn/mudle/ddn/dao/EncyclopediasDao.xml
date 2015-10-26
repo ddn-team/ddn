@@ -12,6 +12,11 @@
 			   LAST_UPDATE_TIME as "lastUpdateTime"
 		FROM DDN_ENCYCLOPEDIAS
 		ORDER BY CREATE_TIME
+		<where>
+			<if test="search.keywords != null">
+				AND keywords LIKE '%${search.keywords}%'
+			</if>
+		</where>
 	</select>
 	
 </mapper>

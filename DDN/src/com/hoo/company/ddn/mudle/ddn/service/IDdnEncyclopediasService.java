@@ -36,7 +36,7 @@ public interface IDdnEncyclopediasService {
 	 * @param encyclopedias 查询对象[暂传{}]
 	 * @return
 	 */
-	public Page queryLtPage(Page page,DdnEncyclopedias encyclopedias);
+	public Page queryLmPage(Page page,DdnEncyclopedias encyclopedias);
 
 	/**
 	 * 查询百科
