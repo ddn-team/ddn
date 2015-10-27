@@ -52,6 +52,9 @@
 			<if test="search.name != null">
 				AND example.name LIKE '%${search.name}%'
 			</if>
+			<if test="search.keyword != null">
+				AND example.keyword LIKE '%${search.keyword}%'
+			</if>
 		</where>
 		
 		order by example.create_time desc
