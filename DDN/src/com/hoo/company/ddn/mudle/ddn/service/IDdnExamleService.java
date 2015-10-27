@@ -1,5 +1,8 @@
 package com.hoo.company.ddn.mudle.ddn.service;
 
+import java.util.List;
+import java.util.Map;
+
 import cn.gilight.framework.dp.model.Page;
 
 import com.hoo.company.ddn.mudle.ddn.entity.DdnExample;
@@ -49,4 +52,12 @@ public interface IDdnExamleService {
 	 * }
 	 */
 	public Page queryLmPage(Page page,DdnExample example);
+	
+	/**
+	 * 查询有记录数据的  年-月 集合 
+	 * @return [{
+	 * 		grouptime:"2010-01"
+	 * }]
+	 */
+	public List<Map<String,Object>> queryLmGroupTime();
 }

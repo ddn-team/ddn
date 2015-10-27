@@ -1,6 +1,7 @@
 package com.hoo.company.ddn.rpc;
 
 import java.util.List;
+import java.util.Map;
 
 import com.hoo.company.ddn.mudle.ddn.entity.ExampleMessage;
 import com.hoo.company.ddn.mudle.ddn.entity.ExamplePictures;
@@ -82,4 +83,6 @@ public interface IExampleRpc {
 	 * @return
 	 */
 	public List<ExampleMessage> queryMessagesByExampleId(String exampleId);
+
+	public List<Map<String,Object>> queryLmGroupTime();
 }

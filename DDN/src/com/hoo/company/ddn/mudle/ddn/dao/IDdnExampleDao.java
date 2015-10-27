@@ -1,6 +1,7 @@
 package com.hoo.company.ddn.mudle.ddn.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -28,4 +29,9 @@ public interface IDdnExampleDao {
 	 */
 	public List<?> queryLmPage(Page page,@Param("search")DdnExample search);
 	
+	/**
+	 * 按 年-月 分组的 案例时间记录
+	 * @return
+	 */
+	public List<Map<String,Object>> queryLmGroupTime();
 }

@@ -159,5 +159,9 @@ public class ExampleRpcImpl implements IExampleRpc {
 		return null;
 	}
 
+	public List<Map<String, Object>> queryLmGroupTime() {
+		return exampleService.queryLmGroupTime();
+	}
+
 	
 }

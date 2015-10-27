@@ -1,5 +1,8 @@
 package com.hoo.company.ddn.mudle.ddn.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -41,5 +44,9 @@ public class DdnExamleServiceImpl implements IDdnExamleService {
 	public Page queryLmPage(Page page,DdnExample example){
 		exampleDao.queryLmPage(page, example);
 		return page;
+	}
+
+	public List<Map<String, Object>> queryLmGroupTime() {
+		return exampleDao.queryLmGroupTime();
 	}
 }

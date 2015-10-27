@@ -57,4 +57,16 @@
 		order by example.create_time desc
 	</select>
 	
+	
+	<select id="queryLmGroupTime"  resultType="java.util.HashMap">
+		<!-- mysql 环境下的sql语句 -->
+			SELECT
+				LEFT (create_time, 7) AS "grouptime"
+			FROM
+				ddn_example
+			GROUP BY
+				"grouptime"
+			ORDER BY
+				create_time;
+	</select>
 </mapper>
