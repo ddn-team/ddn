@@ -10,7 +10,7 @@ import com.hoo.company.ddn.mudle.base.entity.BaseDictionaries;
 import com.hoo.company.ddn.mudle.base.service.IBaseDictionariesService;
 import com.hoo.company.ddn.rpc.IBaseDictionariesRpc;
 
-@Service
+@Service("baseDictionariesRpc")
 public class BaseDictionariesRpcImpl implements IBaseDictionariesRpc {
 
 	@Resource
