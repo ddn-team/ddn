@@ -12,7 +12,7 @@
 		ORDER BY CREATE_TIME
 		<where>
 			<if test="null != message.exampleId">
-				EXAMPLE_ID = #{exampleId}
+				EXAMPLE_ID = #{message.exampleId}
 			</if>
 		</where>
 	</select>
