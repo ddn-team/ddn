@@ -60,6 +60,21 @@
 		order by example.create_time desc
 	</select>
 	
+	<select id="queryById" resultType="com.hoo.company.ddn.mudle.ddn.entity.DdnExample">
+			SELECT 
+			      id  as "id",
+			      name as "name"
+			      cover_url as "coverUrl",
+			      describes as "describes",
+			      style_id  as "styleId",
+			      price_id  as "priceId",
+			      house_type_id as "houseTypeId",
+			      create_time as "createTime",
+			      create_user_id as "createUserId",
+			      keyword as "keyword"
+		   FROM DDN_EXAMPLE
+		   WHERE id = #{id}
+	</select>
 	
 	<select id="queryLmGroupTime"  resultType="java.util.HashMap">
 		<!-- mysql 环境下的sql语句 -->

@@ -156,7 +156,7 @@ public class ExampleRpcImpl implements IExampleRpc {
 		model.setPriceId(e.getPriceId());
 		model.setStyleId(e.getStyleId());
 		model.setPics(pics);
-		return null;
+		return model;
 	}
 
 	public List<Map<String, Object>> queryLmGroupTime() {

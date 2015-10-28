@@ -30,6 +30,13 @@ public interface IDdnExampleDao {
 	public List<?> queryLmPage(Page page,@Param("search")DdnExample search);
 	
 	/**
+	 * 根据ID查询单个实体
+	 * @param id
+	 * @return
+	 */
+	public DdnExample queryById(@Param("id")String id);
+	
+	/**
 	 * 按 年-月 分组的 案例时间记录
 	 * @return
 	 */

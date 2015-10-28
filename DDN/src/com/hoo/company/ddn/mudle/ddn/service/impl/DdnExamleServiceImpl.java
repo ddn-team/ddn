@@ -38,7 +38,7 @@ public class DdnExamleServiceImpl implements IDdnExamleService {
 	}
 
 	public DdnExample queryById(String id) {
-		return daoSupport.getById(id, DdnExample.class);
+		return exampleDao.queryById(id);
 	}
 
 	public Page queryLmPage(Page page,DdnExample example){
