@@ -179,6 +179,7 @@ Pcm.util = Pcm.util || {};
 		 * 上传文件[现支持单一文件上传]
 		 * config = {
 		 * 		fileElementId:"file文件element元素ID",
+		 * 		params:{},  //参数对象[后台接收解析的是  {x:0,y:0,w:0,h:0} ]
 		 *      success:function(listFiles){
 		 * 			//list文件名集合
 		 * 		},
@@ -194,12 +195,14 @@ Pcm.util = Pcm.util || {};
 			config = config || {};
 			if(!config.fileElementId){return;}
 		    var success = config.success||function(){},failure = config.failure || function(){};
-			$.ajaxFileUpload({  
+			var data = config.params || {};
+		    $.ajaxFileUpload({  
 		        url : window.$profile["basePath"] + "servlet/upload",   //submit to UploadFileServlet  
 		        secureuri : false,  
 		        fileElementId : config.fileElementId,  //file控件id
 		        secureuri :false,
 		        dataType : 'text',
+		        data:data,
 		        success : function (data, status){
 					data = JSON.parse(data);
 					if(data["code"] == "success"){

@@ -21,6 +21,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hoo.company.base.util.ImageUtil;
 import com.hoo.company.ddn.manager.SessionManager;
 import com.hoo.company.ddn.mudle.base.model.DdnUser;
 import com.hoo.company.ddn.util.FileUtils;
@@ -50,7 +51,14 @@ public class UploadServlet extends HttpServlet {
 		String characterEncoding = req.getCharacterEncoding();
 		if(characterEncoding == null){characterEncoding = "utf-8";req.setCharacterEncoding(characterEncoding);}
 		res.setContentType("text/html; charset=" + characterEncoding);  
-		
+		Integer x = Integer.valueOf(req.getParameter("x"))
+			   ,y = Integer.valueOf(req.getParameter("y"))
+			   ,w = Integer.valueOf(req.getParameter("w"))
+			   ,h = Integer.valueOf(req.getParameter("h"));
+		if(x == null){ x = -1;}
+		if(y == null){ y = -1;}
+		if(w == null){ w = -1;}
+		if(h == null){ h = -1;}
 		PrintWriter pw = res.getWriter();
 		
 		//DdnUser user = SessionUtils.getUser();
@@ -81,7 +89,7 @@ public class UploadServlet extends HttpServlet {
 					//System.out.println("处理表单内容 ..."); processFormField(item, pw);
 				} else {
 					log.info("处理上传的文件 ...");
-					String filename = processUploadFile(packageName,item, pw);
+					String filename = processUploadFile(packageName,item, pw,new RectModel(x,y,w,h));
 					if(!ObjectUtils.isEmpty(new Object[]{filename})){
 						l.add(filename);
 					}
@@ -110,7 +118,8 @@ public class UploadServlet extends HttpServlet {
 	}*/
 
 	// 处理上传的文件
-	private String processUploadFile(String packageName,FileItem item, PrintWriter pw) throws Exception {
+	private String processUploadFile(String packageName,FileItem item, PrintWriter pw,RectModel rm) throws Exception {
+		int x = rm.x ,y = rm.y, w = rm.w,h = rm.h;
 		// 此时的文件名包含了完整的路径，得注意加工一下
 		String filename = item.getName();
 		log.info("完整的文件名：" + filename);
@@ -133,6 +142,9 @@ public class UploadServlet extends HttpServlet {
 		item.write(uploadFile);
 		//pw.println(filename + " 文件保存完毕 ...");
 		//pw.println("文件大小为 ：" + fileSize + "\r\n");
+		if(x > -1){
+			ImageUtil.cutImage(filePath + "/" + path, filePath + "/" + path, x, y, w, h);
+		}
 		return path;
 	}
 
@@ -151,4 +163,8 @@ public class UploadServlet extends HttpServlet {
 		// http://haolloyin.blog.51cto.com/1177454/368162
 	}
 
+	class RectModel{
+		int x = -1,y = -1,w = -1,h = -1;
+		public RectModel(int x,int y,int w,int h){ this.x = x;this.y = y;this.w = w;this.h = h ;}
+	}
 }

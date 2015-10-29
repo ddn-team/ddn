@@ -16,6 +16,7 @@
 			    example.styleName,
 			    u.id as "userId",
 			    u.USER_NAME as "userName",
+			    u.nick_name as "nickName",
 		        u.USER_HEAD_URL as "userHeadUrl"
 		FROM
 				(
@@ -63,7 +64,7 @@
 	<select id="queryById" resultType="com.hoo.company.ddn.mudle.ddn.entity.DdnExample">
 			SELECT 
 			      id  as "id",
-			      name as "name"
+			      name as "name",
 			      cover_url as "coverUrl",
 			      describes as "describes",
 			      style_id  as "styleId",

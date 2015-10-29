@@ -10,12 +10,13 @@
 			   SORT_NUM  	as "sortNum",
 			   CREATE_TIME  as "createTime"
 		FROM EXAMPLE_PICTURES
-		ORDER BY CREATE_TIME,SORT_NUM
+		
 		<where>
 			<if test="null != exampleId">
-				EXAMPLE_ID = #{exampleId}
+				AND EXAMPLE_ID = #{exampleId}
 			</if>
 		</where>
+		ORDER BY CREATE_TIME,SORT_NUM
 	</select>
 	
 </mapper>

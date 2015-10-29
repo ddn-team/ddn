@@ -9,12 +9,13 @@
 			   CONTENT  	as "content",
 			   CREATE_TIME  as "createTime"
 		FROM EXAMPLE_MESSAGE
-		ORDER BY CREATE_TIME
+		
 		<where>
 			<if test="null != message.exampleId">
 				AND EXAMPLE_ID = #{message.exampleId}
 			</if>
 		</where>
+		ORDER BY CREATE_TIME
 	</select>
 	
 </mapper>
