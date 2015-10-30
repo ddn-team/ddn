@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 import cn.gilight.framework.dp.DaoSupport;
 import cn.gilight.framework.dp.model.Page;
 
+import com.hoo.company.ddn.mudle.base.model.DdnUser;
 import com.hoo.company.ddn.mudle.ddn.dao.IDdnExampleDao;
 import com.hoo.company.ddn.mudle.ddn.entity.DdnExample;
 import com.hoo.company.ddn.mudle.ddn.service.IDdnExamleService;
 import com.hoo.company.ddn.util.DateUtils;
+import com.hoo.company.ddn.util.SessionUtils;
 
 @Service("ddnExamleService")
 public class DdnExamleServiceImpl implements IDdnExamleService {
@@ -42,6 +44,8 @@ public class DdnExamleServiceImpl implements IDdnExamleService {
 	}
 
 	public Page queryLmPage(Page page,DdnExample example){
+		//DdnUser user = SessionUtils.getUser();
+		//if(user != null){ example.setCreateUserId(user.getId()); }
 		exampleDao.queryLmPage(page, example);
 		return page;
 	}
