@@ -54,10 +54,12 @@ public interface IDdnExamleService {
 	public Page queryLmPage(Page page,DdnExample example);
 	
 	/**
+	 * 
 	 * 查询有记录数据的  年-月 集合 
+	 * @param createUserId 查看当前设计师的ID
 	 * @return [{
 	 * 		grouptime:"2010-01"
 	 * }]
 	 */
-	public List<Map<String,Object>> queryLmGroupTime();
+	public List<Map<String,Object>> queryLmGroupTime(String createUserId);
 }

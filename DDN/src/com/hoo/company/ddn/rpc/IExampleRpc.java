@@ -83,6 +83,10 @@ public interface IExampleRpc {
 	 * @return
 	 */
 	public List<ExampleMessage> queryMessagesByExampleId(String exampleId);
-
-	public List<Map<String,Object>> queryLmGroupTime();
+	
+	/**
+	 * 查询设计师的案例 按 年月
+	 * @return
+	 */
+	public List<Map<String,Object>> queryLmGroupTime(String userId);
 }

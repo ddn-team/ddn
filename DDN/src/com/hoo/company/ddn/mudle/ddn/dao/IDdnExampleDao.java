@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.hoo.company.ddn.mudle.ddn.entity.DdnExample;
-
 import cn.gilight.framework.dp.model.Page;
+
+import com.hoo.company.ddn.mudle.ddn.entity.DdnExample;
 
 public interface IDdnExampleDao {
 	
@@ -40,5 +40,5 @@ public interface IDdnExampleDao {
 	 * 按 年-月 分组的 案例时间记录
 	 * @return
 	 */
-	public List<Map<String,Object>> queryLmGroupTime();
+	public List<Map<String,Object>> queryLmGroupTime(@Param("createUserId")String createUserId);
 }

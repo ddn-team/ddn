@@ -50,7 +50,7 @@ public class DdnExamleServiceImpl implements IDdnExamleService {
 		return page;
 	}
 
-	public List<Map<String, Object>> queryLmGroupTime() {
-		return exampleDao.queryLmGroupTime();
+	public List<Map<String, Object>> queryLmGroupTime(String createUserId) {
+		return exampleDao.queryLmGroupTime(createUserId);
 	}
 }
