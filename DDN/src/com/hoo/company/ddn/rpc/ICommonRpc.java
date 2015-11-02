@@ -2,6 +2,7 @@ package com.hoo.company.ddn.rpc;
 
 import com.hoo.company.ddn.exception.UserNotFoundException;
 import com.hoo.company.ddn.exception.ValidateFailException;
+import com.hoo.company.ddn.mudle.base.entity.BaseUser;
 import com.hoo.company.ddn.mudle.base.model.DdnUser;
 
 /**
@@ -39,4 +40,12 @@ public interface ICommonRpc {
 	 * 退出登录
 	 */
 	public void logout();
+	
+	/**
+	 * 修改登录用户自己的信息
+	 * @param bUser
+	 * @return
+	 * @throws Exception
+	 */
+	public boolean updateUser(BaseUser bUser) throws Exception;
 }

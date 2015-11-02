@@ -76,5 +76,12 @@ public class CommonRpcImpl implements ICommonRpc{
 	public void logout() {
 		SessionUtils.clearUser();
 	}
+	
+	public boolean updateUser(BaseUser bUser) throws Exception{
+		bUser.setId(getUser().getId());
+	    BaseUser tempUser = userService.queryT(bUser);
+	    if(null == tempUser){ throw new Exception("该账号不存在.");}
+	    return userService.update(tempUser) != null;
+	}
 
 }
