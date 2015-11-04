@@ -46,4 +46,8 @@ public class ExamplePicturesServiceImpl implements IExamplePicturesService {
 		return daoSupport.delete(pic);
 	}
 
+	public ExamplePictures queryT(ExamplePictures pic) {
+		return examplePicturesDao.queryT(pic);
+	}
+
 }

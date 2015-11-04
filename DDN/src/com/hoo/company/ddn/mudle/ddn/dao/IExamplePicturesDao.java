@@ -15,4 +15,10 @@ public interface IExamplePicturesDao {
 	 */
 	public List<ExamplePictures> queryLtByExampleId(@Param("exampleId")String exampleId);
 	
+	/**
+	 * 根据ExamplePictures中  传递的属性 获取ExamplePictures对象
+	 * @param pictures
+	 * @return
+	 */
+	public ExamplePictures queryT(@Param("pictures") ExamplePictures pictures);
 }

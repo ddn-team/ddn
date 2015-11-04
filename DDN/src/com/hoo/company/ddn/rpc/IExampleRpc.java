@@ -47,10 +47,10 @@ public interface IExampleRpc {
 	
 	/**
 	 * 删除图片
-	 * @param picId 图片ID
+	 * @param pics  {typeCode:"",pictureUrl:"",exampleId:""}
 	 * @return
 	 */
-	public boolean deletePic(String picId);
+	public boolean deletePic(ExamplePictures pics) ;
 	
 	/**
 	 * 修改时[新增添加]图片,修改案例时的添加图片,均依照此种方式添加图片

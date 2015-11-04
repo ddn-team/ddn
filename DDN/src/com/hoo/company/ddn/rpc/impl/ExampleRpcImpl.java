@@ -84,9 +84,8 @@ public class ExampleRpcImpl implements IExampleRpc {
 		return false;
 	}
 
-	public boolean deletePic(String picId) {
-		ExamplePictures pic = new ExamplePictures();
-		pic.setId(picId);
+	public boolean deletePic(ExamplePictures pics) {
+		ExamplePictures pic = examplePicturesService.queryT(pics);
 		return examplePicturesService.delete(pic) != null;
 	}
 
@@ -118,6 +117,13 @@ public class ExampleRpcImpl implements IExampleRpc {
 		ExampleMessage message = new ExampleMessage();
 		message.setId(id);
 		return exampleMessage.delete(message) != null;
+	}
+	
+	/*** 删除图片 */
+	public boolean deleteMessage(ExamplePictures pic){
+		ExamplePictures message = examplePicturesService.queryT(pic);
+		if(message == null){ return false;}
+		return examplePicturesService.delete(message) != null;
 	}
 
 	public List<ExampleMessage> queryMessagesByExampleId(String exampleId) {
@@ -163,5 +169,4 @@ public class ExampleRpcImpl implements IExampleRpc {
 		return exampleService.queryLmGroupTime(userId);
 	}
 
-	
 }

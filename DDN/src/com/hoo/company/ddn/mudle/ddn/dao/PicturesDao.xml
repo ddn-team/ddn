@@ -19,4 +19,26 @@
 		ORDER BY CREATE_TIME,SORT_NUM
 	</select>
 	
+	<select id="queryT" resultType="com.hoo.company.ddn.mudle.ddn.entity.ExamplePictures">
+		SELECT id	 	 	as "id",
+			   TYPE_CODE 	as "typeCode",
+			   PICTURE_URL  as "pictureUrl",
+			   SORT_NUM  	as "sortNum",
+			   EXAMPLE_ID   as "exampleId",
+			   CREATE_TIME  as "createTime"
+		FROM EXAMPLE_PICTURES
+		
+		<where>
+			<if test="pictures.typeCode != null">
+				AND TYPE_CODE = #{pictures.typeCode}
+			</if>
+			<if test="pictures.pictureUrl != null">
+				AND PICTURE_URL = #{pictures.pictureUrl}
+			</if>
+			<if test="pictures.exampleId != null">
+				AND EXAMPLE_ID = #{pictures.exampleId}
+			</if>
+		</where>
+		ORDER BY CREATE_TIME,SORT_NUM
+	</select>
 </mapper>

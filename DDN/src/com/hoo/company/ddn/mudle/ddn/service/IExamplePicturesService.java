@@ -30,6 +30,13 @@ public interface IExamplePicturesService {
 	public ExamplePictures delete(ExamplePictures pic);
 	
 	/**
+	 * 查下ExamplePictures对象
+	 * @param pic 支持:  {typeCode:"",pictureUrl:"",exampleId:""}
+	 * @return
+	 */
+	public ExamplePictures queryT(ExamplePictures pic);
+	
+	/**
 	 * 批量删除
 	 * @param pictures
 	 */
