@@ -28,4 +28,17 @@ public class FileUtils {
 		String filename = "D:\\WORKPLACE\\PCM\\WebRoot\\page_swxx\\index.html";
 		System.out.println(filename.replace("D:\\WORKPLACE\\PCM\\WebRoot\\page_swxx", "D:\\WORKPLACE\\PCM\\WebRoot\\page"));
 	}
+	
+	/**
+	 * 根据文件名获取后缀(简版)
+	 * @param filename
+	 * @return
+	 */
+	public static String getExt(String filename){
+		String[] dirs = filename.split(".");
+		if(dirs.length > 0){
+			return dirs[dirs.length - 1];
+		}
+		return null;
+	}
 }
